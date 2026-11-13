@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wszystkiego Najlepszego Miłosz! 🦁 Pozdrowienia z Afryki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Główne czcionki i zmienne kolorystyczne afrykańskiej sawanny */
+        :root {
+            --savanna-gold: #f59e0b;
+            --savanna-terracotta: #b91c1c;
+            --savanna-earth: #451a03;
+            --savanna-sand: #fef3c7;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(180deg, #450a0a 0%, #9a3412 32%, #d97706 68%, #fbbf24 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fef3c7;
+        }
+
+        .font-tribal {
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        /* Wzór Kente na paskach ozdobnych */
+        .kente-border {
+            background: repeating-linear-gradient(
+                90deg,
+                #dc2626 0px,
+                #dc2626 16px,
+                #facc15 16px,
+                #facc15 32px,
+                #15803d 32px,
+                #15803d 48px,
+                #1c1917 48px,
+                #1c1917 64px
+            );
+        }
+
+        /* Afrykański wzór geometryczny Mudcloth (Bogolanfini) */
+        .mudcloth-pattern {
+            background-color: rgba(69, 26, 3, 0.35);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(251, 191, 36, 0.14) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(251, 191, 36, 0.14) 2px, transparent 2px),
+                linear-gradient(45deg, rgba(251, 191, 36, 0.06) 25%, transparent 25%, transparent 75%, rgba(251, 191, 36, 0.06) 75%),
+                linear-gradient(-45deg, rgba(251, 191, 36, 0.06) 25%, transparent 25%, transparent 75%, rgba(251, 191, 36, 0.06) 75%);
+            background-size: 40px 40px;
+        }
+
+        /* Pulsujące słońce sawanny w tle */
+        .savanna-sun {
+            background: radial-gradient(circle, #fef08a 0%, #f59e0b 55%, rgba(234, 88, 12, 0) 75%);
+            animation: sunGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes sunGlow {
+            0% { transform: scale(1); opacity: 0.85; }
+            100% { transform: scale(1.08); opacity: 1; }
+        }
+
+        /* Pudełko prezentowe 3D */
+        .gift-wrapper {
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .gift-wrapper:hover:not(.gift-opened) {
+            transform: scale(1.06) translateY(-6px);
+        }
+
+        .gift-box {
+            position: relative;
+            width: 210px;
+            height: 190px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+        }
+
+        @media (min-width: 640px) {
+            .gift-box {
+                width: 250px;
+                height: 225px;
+            }
+        }
+
+        /* Korpus pudełka w stylu afrykańskim */
+        .gift-body {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 76%;
+            background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+            border: 4px solid #fbbf24;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.55), inset 0 0 25px rgba(251, 191, 36, 0.25);
+            overflow: hidden;
+        }
+
+        /* Pionowa wstążka Kente na korpusie */
+        .gift-ribbon-v {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 44px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                #facc15 0px,
+                #facc15 10px,
+                #15803d 10px,
+                #15803d 20px,
+                #1c1917 20px,
+                #1c1917 30px
+            );
+            border-left: 3px solid #fef08a;
+            border-right: 3px solid #fef08a;
+        }
+
+        /* Wieczko prezentu */
+        .gift-lid {
+            position: absolute;
+            top: 12%;
+            left: -5%;
+            width: 110%;
+            height: 22%;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border: 4px solid #fbbf24;
+            border-radius: 14px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+            z-index: 20;
+            transform-origin: left bottom;
+            transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+        }
+
+        .gift-lid-ribbon {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 100%;
+            background: #facc15;
+            border-left: 3px solid #15803d;
+            border-right: 3px solid #15803d;
+        }
+
+        /* Złota kokarda na szczycie */
+        .gift-bow {
+            position: absolute;
+            top: -34px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 96px;
+            height: 40px;
+            z-index: 25;
+            transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+        }
+
+        .bow-loop-left, .bow-loop-right {
+            position: absolute;
+            width: 44px;
+            height: 36px;
+            border: 6px solid #fbbf24;
+            background: #15803d;
+            border-radius: 50% 50% 0 50%;
+            top: 2px;
+        }
+
+        .bow-loop-left {
+            left: 4px;
+            transform: rotate(-20deg);
+        }
+
+        .bow-loop-right {
+            right: 4px;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(20deg);
+        }
+
+        .bow-knot {
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: #facc15;
+            border: 3px solid #7f1d1d;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* Animacja potrząsania przed otwarciem */
+        @keyframes giftShake {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            15% { transform: rotate(-7deg) scale(1.05); }
+            30% { transform: rotate(7deg) scale(1.08); }
+            45% { transform: rotate(-9deg) scale(1.1); }
+            60% { transform: rotate(9deg) scale(1.1); }
+            75% { transform: rotate(-5deg) scale(1.06); }
+            90% { transform: rotate(5deg) scale(1.04); }
+        }
+
+        .animate-gift-shake {
+            animation: giftShake 0.85s ease-in-out;
+        }
+
+        /* Stan po otwarciu prezentu */
+        .gift-opened .gift-lid {
+            transform: translateY(-95px) rotate(-38deg) scale(0.95);
+            opacity: 0;
+        }
+
+        .gift-opened .gift-bow {
+            transform: translate(-50%, -115px) rotate(-45deg) scale(0.8);
+            opacity: 0;
+        }
+
+        /* Blask wydobywający się ze środka otwartego pudełka */
+        .gift-inner-glow {
+            position: absolute;
+            top: 18%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, #fef08a 0%, #f59e0b 50%, transparent 75%);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease, transform 0.6s ease;
+            z-index: 15;
+        }
+
+        .gift-opened .gift-inner-glow {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-35px) scale(1.4);
+        }
+
+        /* Animacja pulsowania liczby podczas odliczania */
+        @keyframes countdownPop {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .countdown-number {
+            animation: countdownPop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* Delikatne unoszenie się kart i elementów */
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .float-slow {
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="relative flex flex-col justify-between selection:bg-amber-400 selection:text-amber-950">
+
+    <!-- Górny pasek w afrykański wzór Kente -->
+    <div class="w-full h-3 kente-border shadow-md z-30"></div>
+
+    <!-- Tło sawanny: słońce, akacje i żyrafy (SVG) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <!-- Wielkie afrykańskie słońce -->
+        <div class="savanna-sun absolute top-12 left-1/2 -translate-x-1/2 w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] rounded-full"></div>
+        <!-- Nakładka wzoru Mudcloth -->
+        <div class="absolute inset-0 mudcloth-pattern"></div>
+
+        <!-- Sylwetka horyzontu sawanny na dole ekranu -->
+        <svg class="absolute bottom-0 left-0 w-full h-44 sm:h-64 preserve-3d" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <!-- Wzgórza w oddali -->
+            <path fill="#7c2d12" fill-opacity="0.65" d="M0,224L80,213.3C160,203,320,181,480,186.7C640,192,800,224,960,229.3C1120,235,1280,213,1360,202.7L1440,192L1440,320L0,320Z"></path>
+            <!-- Pierwszy plan ziemi sawanny -->
+            <path fill="#290d02" d="M0,265L120,255C240,245,480,225,720,235C960,245,1200,275,1320,285L1440,295L1440,320L0,320Z"></path>
+            
+            <!-- Drzewo akacji po lewej -->
+            <g fill="#290d02" transform="translate(110, 125) scale(0.85)">
+                <path d="M95,160 L105,160 L102,95 L135,65 L128,60 L100,85 L72,58 L65,64 L96,95 Z" />
+                <ellipse cx="100" cy="52" rx="88" ry="18" />
+                <ellipse cx="65" cy="45" rx="45" ry="12" />
+                <ellipse cx="135" cy="46" rx="48" ry="12" />
+            </g>
+
+            <!-- Sylwetka żyrafy po prawej -->
+            <g fill="#290d02" transform="translate(1130, 115) scale(0.8)">
+                <!-- Nogi -->
+                <rect x="35" y="95" width="6" height="75" />
+                <rect x="48" y="95" width="6" height="75" />
+                <rect x="75" y="95" width="6" height="75" />
+                <rect x="88" y="95" width="6" height="75" />
+                <!-- Tułów -->
+                <path d="M32,98 Q60,72 95,95 L90,108 L35,108 Z" />
+                <!-- Długa szyja i głowa -->
+                <path d="M35,96 L18,22 L28,20 L48,92 Z" />
+                <ellipse cx="16" cy="20" rx="12" ry="6" transform="rotate(-15 16 20)" />
+                <line x1="22" y1="15" x2="22" y2="6" stroke="#290d02" stroke-width="3" />
+                <line x1="27" y1="15" x2="28" y2="6" stroke="#290d02" stroke-width="3" />
+            </g>
+
+            <!-- Małe drzewko akacji po prawej stronie -->
+            <g fill="#290d02" transform="translate(1240, 165) scale(0.55)">
+                <path d="M95,160 L105,160 L102,95 L130,65 L124,60 L100,85 L72,58 L65,64 L96,95 Z" />
+                <ellipse cx="100" cy="52" rx="85" ry="17" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Canvas na konfetti -->
+    <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+    <!-- Górny pasek nawigacji z kontrolerem afrykańskiej muzyki -->
+    <header class="relative z-20 w-full max-w-5xl mx-auto px-4 pt-4 sm:pt-6 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2 bg-amber-950/75 border border-amber-400/50 px-3.5 py-1.5 rounded-full backdrop-blur-md shadow-lg">
+            <span class="text-xl">🌍</span>
+            <span class="text-xs sm:text-sm font-bold tracking-wider uppercase text-amber-300">Prosto z Afryki dla Miłosza</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <!-- Kontroler muzyki w tle (domyślnie WŁ. od samego wejścia na stronę) -->
+            <button id="music-toggle-btn" type="button"
+                class="flex items-center gap-2.5 bg-amber-950/85 hover:bg-amber-900 text-amber-100 border-2 border-amber-400 px-4 py-2 rounded-full shadow-xl transition-all active:scale-95 cursor-pointer backdrop-blur-md">
+                <span id="music-icon" class="text-lg">🎶</span>
+                <span id="music-status-text" class="text-xs sm:text-sm font-bold tracking-wide uppercase">Muzyka: WŁ.</span>
+                <span id="music-indicator" class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Główna sekcja centralna -->
+    <main class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-6 sm:py-8 text-center max-w-4xl mx-auto w-full">
+        
+        <!-- Nagłówek z życzeniami -->
+        <div class="mb-6 sm:mb-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-red-900/80 border border-amber-400/60 text-amber-200 text-xs sm:text-sm font-semibold mb-3 shadow-md">
+                <span>🦁</span>
+                <span>SPECJALNA MISJA URODZINOWA</span>
+                <span>🥁</span>
+            </div>
+
+            <h1 class="font-tribal text-3xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-amber-300 to-orange-400 drop-shadow-[0_4px_12px_rgba(0,0,0,0.75)] leading-tight">
+                Wszystkiego Najlepszego, Miłosz!
+            </h1>
+
+            <p class="mt-3 sm:mt-4 text-base sm:text-xl text-amber-100/95 max-w-2xl mx-auto font-medium drop-shadow">
+                Gorące pozdrowienia prosto ze słonecznej Afryki! Przygotowaliśmy dla Ciebie wyjątkową niespodziankę. Kliknij w prezent poniżej, aby ją otworzyć!
+            </p>
+        </div>
+
+        <!-- Interaktywny Prezent 3D -->
+        <div id="gift-stage" class="my-4 sm:my-6 flex flex-col items-center">
+            <div id="gift-trigger" class="gift-wrapper float-slow select-none" role="button" tabindex="0" aria-label="Otwórz prezent urodzinowy dla Miłosza">
+                <div id="gift-box" class="gift-box">
+                    <!-- Blask ze środka -->
+                    <div class="gift-inner-glow"></div>
+
+                    <!-- Kokarda -->
+                    <div class="gift-bow">
+                        <div class="bow-loop-left"></div>
+                        <div class="bow-loop-right"></div>
+                        <div class="bow-knot"></div>
+                    </div>
+
+                    <!-- Wieczko -->
+                    <div class="gift-lid">
+                        <div class="gift-lid-ribbon"></div>
+                    </div>
+
+                    <!-- Pudełko -->
+                    <div class="gift-body">
+                        <div class="gift-ribbon-v"></div>
+                        <!-- Ozdobny afrykański medalion na froncie -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-950 border-4 border-yellow-300 flex items-center justify-center shadow-xl z-10">
+                            <span class="font-tribal text-yellow-300 font-black text-lg sm:text-xl">18</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Przycisk / podpowiedź pod prezentem -->
+            <button id="open-gift-btn" type="button"
+                class="mt-6 group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-amber-950 font-extrabold text-base sm:text-lg shadow-[0_10px_25px_rgba(245,158,11,0.5)] hover:shadow-[0_14px_35px_rgba(251,191,36,0.75)] border-2 border-yellow-200 transition-all hover:scale-105 active:scale-95 cursor-pointer">
+                <span class="text-2xl group-hover:rotate-12 transition-transform">🎁</span>
+                <span>Kliknij, aby otworzyć prezent!</span>
+            </button>
+        </div>
+
+        <!-- Karta z życzeniami w afrykańskim stylu -->
+        <div class="mt-6 sm:mt-8 w-full max-w-2xl bg-amber-950/70 backdrop-blur-md border-2 border-amber-400/50 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 kente-border"></div>
+            <div class="flex flex-col sm:flex-row items-center gap-4 text-left">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-red-600 flex items-center justify-center text-3xl sm:text-4xl shrink-0 shadow-lg border border-yellow-200">
+                    🪘
+                </div>
+                <div>
+                    <h2 class="font-tribal text-lg sm:text-xl font-bold text-amber-300">
+                        Hakuna Matata, Miłosz!
+                    </h2>
+                    <p class="text-sm sm:text-base text-amber-100/90 mt-1 leading-relaxed">
+                        Niech Twoje życie będzie pełne wielkich przygód, odwagi lwa, radości płynącej z każdego dnia i energii afrykańskiego słońca. Sto lat i spełnienia najskrytszych marzeń!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Nakładka Odliczania (3... 2... 1...) -->
+    <div id="countdown-overlay" class="fixed inset-0 z-40 bg-black/80 backdrop-blur-md hidden flex-col items-center justify-center p-4 text-center">
+        <div class="mb-4 px-5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400 text-amber-300 text-sm sm:text-base font-bold tracking-widest uppercase">
+            Przygotuj się na pozdrowienia z Afryki!
+        </div>
+        <div id="countdown-display" class="font-tribal text-8xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-amber-400 to-red-500 drop-shadow-[0_0_35px_rgba(251,191,36,0.8)]">
+            3
+        </div>
+        <p id="countdown-subtext" class="mt-4 text-lg sm:text-2xl text-amber-100 font-semibold animate-pulse">
+            Bębny już biją dla Miłosza... 🥁
+        </p>
+    </div>
+
+    <!-- Modal z Nagraniem Wideo -->
+    <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div class="relative w-full max-w-4xl bg-gradient-to-b from-amber-950 to-stone-950 border-4 border-amber-400 rounded-3xl shadow-[0_0_60px_rgba(245,158,11,0.45)] overflow-hidden my-auto">
+            <!-- Górny pasek Kente -->
+            <div class="w-full h-3 kente-border"></div>
+
+            <!-- Nagłówek modala -->
+            <div class="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-amber-950/90 border-b border-amber-500/30">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-2xl">🎉</span>
+                    <h3 class="font-tribal text-base sm:text-xl font-bold text-amber-300">
+                        Pozdrowienia z Afryki dla Miłosza!
+                    </h3>
+                </div>
+                <button id="close-modal-btn" type="button"
+                    class="w-10 h-10 rounded-full bg-red-800/80 hover:bg-red-700 text-amber-100 border border-amber-400/50 flex items-center justify-center font-bold text-lg transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+                    aria-label="Zamknij okno z filmem">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Kontener wideo -->
+            <div class="relative bg-black aspect-video w-full flex items-center justify-center">
+                <video id="birthday-video" class="w-full h-full object-contain" controls playsinline preload="auto">
+                    <source src="gemini_generated_video_bf18f430.mp4" type="video/mp4">
+                    <source src="video_1.mp4" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzacza wideo HTML5.
+                </video>
+
+                <!-- Komunikat awaryjny, jeśli plik wideo nie jest bezpośrednio podpięty w lokalnym środowisku -->
+                <div id="video-fallback-banner" class="hidden absolute inset-0 bg-stone-950/95 flex flex-col items-center justify-center p-6 text-center">
+                    <span class="text-5xl mb-3">🎬</span>
+                    <h4 class="font-tribal text-xl text-amber-300 font-bold mb-2">Wybierz plik z nagraniem</h4>
+                    <p class="text-amber-100/80 text-sm max-w-md mb-4">
+                        Upewnij się, że plik <code class="text-yellow-300 font-mono">gemini_generated_video_bf18f430.mp4</code> znajduje się w tym samym folderze co strona, lub wskaż go ręcznie z dysku:
+                    </p>
+                    <label class="px-5 py-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-amber-950 font-bold text-sm cursor-pointer transition shadow-lg">
+                        📂 Wybierz plik wideo z urządzenia
+                        <input id="manual-video-input" type="file" accept="video/*" class="hidden">
+                    </label>
+                </div>
+            </div>
+
+            <!-- Stopka modala z przyciskami akcji -->
+            <div class="px-4 sm:px-6 py-4 bg-amber-950/95 flex flex-wrap items-center justify-between gap-3 border-t border-amber-500/30">
+                <div class="text-xs sm:text-sm text-amber-200/90 flex items-center gap-2">
+                    <span>🔇</span>
+                    <span>Muzyka w tle zatrzymuje się automatycznie podczas odtwarzania filmu.</span>
+                </div>
+                <div class="flex items-center gap-2.5 ml-auto">
+                    <button id="replay-confetti-btn" type="button"
+                        class="px-4 py-2 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400 text-amber-200 text-xs sm:text-sm font-bold transition cursor-pointer">
+                        🎊 Więcej konfetti!
+                    </button>
+                    <button id="close-modal-footer-btn" type="button"
+                        class="px-5 py-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-amber-950 text-xs sm:text-sm font-extrabold shadow-md hover:brightness-110 transition cursor-pointer">
+                        Wróć do prezentu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dolny pasek w afrykański wzór Kente -->
+    <footer class="relative z-20 w-full mt-6">
+        <div class="text-center pb-3 px-4 text-xs text-amber-200/80 font-medium">
+            Stworzone specjalnie z okazji urodzin Miłosza • Edycja Afrykańska 🌍🦁
+        </div>
+        <div class="w-full h-3 kente-border"></div>
+    </footer>
+
+    <script>
+        /**
+         * ============================================================================
+         * 1. WBUDOWANY SYNTEZATOR MUZYKI AFRYKAŃSKIEJ (Web Audio API)
+         * Generuje radosny rytm bębnów Djembe, grzechotki Shekere oraz melodię Kalimby.
+         * Domyślnie aktywowany od razu przy wejściu na stronę.
+         * ============================================================================
+         */
+        class AfricanMusicEngine {
+            constructor() {
+                this.ctx = null;
+                this.isPlaying = false;
+                this.userMuted = false; // Zapamiętuje, czy użytkownik ręcznie kliknął "WYŁ."
+                this.wasPlayingBeforeVideo = false;
+                this.stepIndex = 0;
+                this.timerId = null;
+                this.tempo = 118; // BPM - radosne afrykańskie tempo
+                this.masterGain = null;
+
+                // Skala pentatoniczna durowa (C4, D4, E4, G4, A4, C5, D5, E5) - brzmi jak kalimba
+                this.kalimbaNotes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25];
+                // Radosny 16-krokowy wzór melodyczny dla kalimby
+                this.melodyPattern = [
+                    5, -1, 3, 4,
+                    5, -1, 7, 5,
+                    4, -1, 2, 3,
+                    4, 2, 0, -1
+                ];
+            }
+
+            initContext() {
+                if (!this.ctx) {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    this.ctx = new AudioCtx();
+                    this.masterGain = this.ctx.createGain();
+                    this.masterGain.gain.value = 0.42;
+                    this.masterGain.connect(this.ctx.destination);
+                }
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume().catch(() => {});
+                }
+            }
+
+            // Odblokowuje AudioContext przy pierwszej interakcji, jeśli przeglądarka zablokowała autostart
+            unlockAudio() {
+                if (this.userMuted) return;
+                this.initContext();
+                if (this.ctx && this.ctx.state === 'suspended') {
+                    this.ctx.resume().then(() => {
+                        if (!this.isPlaying && !this.userMuted && videoModal.classList.contains('hidden')) {
+                            this.start();
+                        }
+                    }).catch(() => {});
+                } else if (!this.isPlaying && !this.userMuted && videoModal.classList.contains('hidden')) {
+                    this.start();
+                }
+            }
+
+            // Bęben Djembe (niski bas "Bass" lub uderzenie "Tone")
+            playDjembe(type = 'bass') {
+                if (!this.ctx || this.ctx.state !== 'running') return;
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+
+                osc.type = 'sine';
+                if (type === 'bass') {
+                    osc.frequency.setValueAtTime(145, now);
+                    osc.frequency.exponentialRampToValueAtTime(52, now + 0.18);
+                    gain.gain.setValueAtTime(0.85, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                } else {
+                    osc.frequency.setValueAtTime(290, now);
+                    osc.frequency.exponentialRampToValueAtTime(140, now + 0.11);
+                    gain.gain.setValueAtTime(0.55, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+                }
+
+                osc.connect(gain);
+                gain.connect(this.masterGain);
+                osc.start(now);
+                osc.stop(now + 0.26);
+            }
+
+            // Grzechotka Shekere (szum filtrowany)
+            playShekere(accent = false) {
+                if (!this.ctx || this.ctx.state !== 'running') return;
+                const now = this.ctx.currentTime;
+                const bufferSize = this.ctx.sampleRate * 0.06;
+                const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+
+                const noise = this.ctx.createBufferSource();
+                noise.buffer = buffer;
+
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.value = accent ? 5200 : 3800;
+                filter.Q.value = 1.8;
+
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(accent ? 0.26 : 0.13, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.055);
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.masterGain);
+                noise.start(now);
+            }
+
+            // Dźwięk afrykańskiej kalimby (pianina kciukowego)
+            playKalimba(freq) {
+                if (!this.ctx || this.ctx.state !== 'running') return;
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const overtone = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now);
+
+                // Lekki metaliczny przydźwięk blaszki kalimby
+                overtone.type = 'triangle';
+                overtone.frequency.setValueAtTime(freq * 2, now);
+
+                const overtoneGain = this.ctx.createGain();
+                overtoneGain.gain.setValueAtTime(0.12, now);
+                overtoneGain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+                gain.gain.setValueAtTime(0.38, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+
+                osc.connect(gain);
+                overtone.connect(overtoneGain);
+                overtoneGain.connect(gain);
+                gain.connect(this.masterGain);
+
+                osc.start(now);
+                overtone.start(now);
+                osc.stop(now + 0.56);
+                overtone.stop(now + 0.56);
+            }
+
+            // Pojedyncze uderzenie bębna do odliczania 3.. 2.. 1..
+            playCountdownDrum(isFinal = false) {
+                this.initContext();
+                if (!this.ctx) return;
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume().catch(() => {});
+                }
+                if (isFinal) {
+                    this.playDjembe('bass');
+                    setTimeout(() => this.playKalimba(523.25), 60);
+                    setTimeout(() => this.playKalimba(659.25), 130);
+                } else {
+                    this.playDjembe('tone');
+                }
+            }
+
+            start() {
+                this.userMuted = false;
+                this.initContext();
+                this.updateUI(true);
+
+                if (this.isPlaying) return;
+                this.isPlaying = true;
+
+                const sixteenthMs = (60 / this.tempo / 4) * 1000;
+
+                const tick = () => {
+                    if (!this.isPlaying) return;
+                    const step = this.stepIndex % 16;
+
+                    // Rytm Djembe (klasyczny afrykański puls)
+                    if (step === 0 || step === 6 || step === 8 || step === 14) {
+                        this.playDjembe('bass');
+                    }
+                    if (step === 3 || step === 4 || step === 11 || step === 12) {
+                        this.playDjembe('tone');
+                    }
+
+                    // Grzechotka Shekere co drugi krok
+                    if (step % 2 === 0) {
+                        this.playShekere(step % 4 === 2);
+                    }
+
+                    // Melodia Kalimby
+                    const noteIdx = this.melodyPattern[step];
+                    if (noteIdx >= 0 && noteIdx < this.kalimbaNotes.length) {
+                        this.playKalimba(this.kalimbaNotes[noteIdx]);
+                    }
+
+                    this.stepIndex++;
+                };
+
+                tick();
+                this.timerId = setInterval(tick, sixteenthMs);
+            }
+
+            stop(manual = false) {
+                if (manual) {
+                    this.userMuted = true;
+                }
+                this.isPlaying = false;
+                if (this.timerId) {
+                    clearInterval(this.timerId);
+                    this.timerId = null;
+                }
+                this.updateUI(false);
+            }
+
+            toggle() {
+                if (this.isPlaying || !this.userMuted) {
+                    this.wasPlayingBeforeVideo = false;
+                    this.stop(true);
+                } else {
+                    this.start();
+                }
+            }
+
+            updateUI(activeState = this.isPlaying) {
+                const btnText = document.getElementById('music-status-text');
+                const indicator = document.getElementById('music-indicator');
+                const icon = document.getElementById('music-icon');
+
+                if (activeState) {
+                    btnText.textContent = 'Muzyka: WŁ.';
+                    indicator.classList.remove('bg-red-500');
+                    indicator.classList.add('bg-emerald-400', 'animate-ping');
+                    icon.textContent = '🎶';
+                } else {
+                    btnText.textContent = 'Muzyka: WYŁ.';
+                    indicator.classList.remove('bg-emerald-400', 'animate-ping');
+                    indicator.classList.add('bg-red-500');
+                    icon.textContent = '🥁';
+                }
+            }
+        }
+
+        const africanMusic = new AfricanMusicEngine();
+
+        /**
+         * ============================================================================
+         * 2. SYSTEM KONFETTI W KOLORACH AFRYKAŃSKICH (Złoto, Czerwień, Zieleń, Pomarańcz)
+         * ============================================================================
+         */
+        const confettiCanvas = document.getElementById('confetti-canvas');
+        const confettiCtx = confettiCanvas.getContext('2d');
+        let confettiPieces = [];
+        let confettiAnimId = null;
+
+        function resizeConfettiCanvas() {
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeConfettiCanvas);
+        resizeConfettiCanvas();
+
+        function launchConfettiBurst(count = 130) {
+            const colors = ['#facc15', '#dc2626', '#16a34a', '#f97316', '#fef08a', '#ffffff'];
+            const originX = window.innerWidth / 2;
+            const originY = window.innerHeight / 2;
+
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 5 + Math.random() * 13;
+                confettiPieces.push({
+                    x: originX,
+                    y: originY,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 4,
+                    size: 6 + Math.random() * 7,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 14,
+                    gravity: 0.28,
+                    drag: 0.985,
+                    alpha: 1
+                });
+            }
+
+            if (!confettiAnimId) {
+                animateConfetti();
+            }
+        }
+
+        function animateConfetti() {
+            confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+            confettiPieces.forEach((p) => {
+                p.vx *= p.drag;
+                p.vy = p.vy * p.drag + p.gravity;
+                p.x += p.vx;
+                p.y += p.vy;
+                p.rotation += p.rotationSpeed;
+                if (p.y > confettiCanvas.height - 40) {
+                    p.alpha -= 0.025;
+                }
+
+                confettiCtx.save();
+                confettiCtx.globalAlpha = Math.max(0, p.alpha);
+                confettiCtx.translate(p.x, p.y);
+                confettiCtx.rotate((p.rotation * Math.PI) / 180);
+                confettiCtx.fillStyle = p.color;
+                confettiCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.65);
+                confettiCtx.restore();
+            });
+
+            confettiPieces = confettiPieces.filter((p) => p.alpha > 0 && p.y < confettiCanvas.height + 30);
+
+            if (confettiPieces.length > 0) {
+                confettiAnimId = requestAnimationFrame(animateConfetti);
+            } else {
+                confettiAnimId = null;
+            }
+        }
+
+        /**
+         * ============================================================================
+         * 3. LOGIKA INTERAKCJI: PREZENT -> ODLICZANIE -> WIDEO + KONTROLA MUZYKI
+         * ============================================================================
+         */
+        const musicToggleBtn = document.getElementById('music-toggle-btn');
+        const giftTrigger = document.getElementById('gift-trigger');
+        const openGiftBtn = document.getElementById('open-gift-btn');
+        const giftBox = document.getElementById('gift-box');
+        const countdownOverlay = document.getElementById('countdown-overlay');
+        const countdownDisplay = document.getElementById('countdown-display');
+        const countdownSubtext = document.getElementById('countdown-subtext');
+        const videoModal = document.getElementById('video-modal');
+        const birthdayVideo = document.getElementById('birthday-video');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const closeModalFooterBtn = document.getElementById('close-modal-footer-btn');
+        const replayConfettiBtn = document.getElementById('replay-confetti-btn');
+        const videoFallbackBanner = document.getElementById('video-fallback-banner');
+        const manualVideoInput = document.getElementById('manual-video-input');
+
+        let isSequenceRunning = false;
+
+        // Natychmiastowe włączenie muzyki od razu po wejściu na stronę
+        function initAutoplayMusic() {
+            africanMusic.start();
+        }
+        window.addEventListener('DOMContentLoaded', initAutoplayMusic);
+        window.addEventListener('load', initAutoplayMusic);
+
+        // Odblokowanie AudioContext przy dowolnym pierwszym kliknięciu/dotknięciu strony
+        const unlockEvents = ['pointerdown', 'touchstart', 'keydown', 'click'];
+        function handleGlobalUnlock(e) {
+            if (musicToggleBtn.contains(e.target)) return;
+            africanMusic.unlockAudio();
+            if (africanMusic.ctx && africanMusic.ctx.state === 'running') {
+                unlockEvents.forEach((evt) => document.removeEventListener(evt, handleGlobalUnlock));
+            }
+        }
+        unlockEvents.forEach((evt) => document.addEventListener(evt, handleGlobalUnlock, { passive: true }));
+
+        // Przełącznik muzyki w prawym górnym rogu
+        musicToggleBtn.addEventListener('click', () => {
+            africanMusic.toggle();
+        });
+
+        // Sprawdzenie błędu ładowania pliku wideo (pokazuje ręczny wybór pliku tylko gdy oba źródła zawiodą)
+        const videoSources = birthdayVideo.querySelectorAll('source');
+        const lastVideoSource = videoSources[videoSources.length - 1];
+        if (lastVideoSource) {
+            lastVideoSource.addEventListener('error', () => {
+                videoFallbackBanner.classList.remove('hidden');
+            });
+        }
+
+        manualVideoInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                birthdayVideo.src = fileURL;
+                videoFallbackBanner.classList.add('hidden');
+                birthdayVideo.play().catch(() => {});
+            }
+        });
+
+        // KRYTYCZNE: Synchronizacja audio między muzyką w tle a elementem <video>
+        birthdayVideo.addEventListener('play', () => {
+            if (!africanMusic.userMuted) {
+                africanMusic.wasPlayingBeforeVideo = true;
+            }
+            // Natychmiastowe zatrzymanie muzyki w tle, gdy zaczyna grać filmik
+            africanMusic.stop(false);
+        });
+
+        birthdayVideo.addEventListener('pause', () => {
+            // Jeśli wideo zapauzowano, wznów muzykę o ile nie była ręcznie wyłączona
+            if (africanMusic.wasPlayingBeforeVideo && !africanMusic.userMuted && !videoModal.classList.contains('hidden')) {
+                africanMusic.start();
+            }
+        });
+
+        birthdayVideo.addEventListener('ended', () => {
+            launchConfettiBurst(100);
+            if (africanMusic.wasPlayingBeforeVideo && !africanMusic.userMuted) {
+                africanMusic.start();
+            }
+        });
+
+        // Główna sekwencja otwierania prezentu -> odliczania -> odtworzenia wideo
+        function startGiftOpeningSequence() {
+            if (isSequenceRunning) return;
+            isSequenceRunning = true;
+
+            // Zapamiętaj stan muzyki i zatrzymaj ją na czas odliczania i odtwarzania wideo
+            if (!africanMusic.userMuted) {
+                africanMusic.wasPlayingBeforeVideo = true;
+            }
+            africanMusic.stop(false);
+
+            // Krok 1: Animacja trzęsienia pudełka
+            giftTrigger.classList.remove('float-slow');
+            giftBox.classList.add('animate-gift-shake');
+            africanMusic.playCountdownDrum(false);
+
+            setTimeout(() => {
+                // Krok 2: Otwarcie wieczka prezentu + wystrzał konfetti
+                giftBox.classList.remove('animate-gift-shake');
+                giftBox.classList.add('gift-opened');
+                giftTrigger.classList.add('gift-opened');
+                launchConfettiBurst(150);
+                africanMusic.playCountdownDrum(true);
+
+                // Krok 3: Uruchomienie odliczania 3... 2... 1...
+                setTimeout(() => {
+                    runCountdown(3);
+                }, 700);
+            }, 850);
+        }
+
+        function runCountdown(startNumber) {
+            countdownOverlay.classList.remove('hidden');
+            countdownOverlay.classList.add('flex');
+
+            let current = startNumber;
+
+            const messages = {
+                3: 'Bębny już biją dla Miłosza... 🥁',
+                2: 'Słońce sawanny świeci najjaśniej... ☀️',
+                1: 'Czas na niespodziankę! 🦁🎉'
+            };
+
+            function showStep(num) {
+                countdownDisplay.textContent = num;
+                countdownSubtext.textContent = messages[num] || 'Start!';
+                // Restart animacji CSS
+                countdownDisplay.classList.remove('countdown-number');
+                void countdownDisplay.offsetWidth;
+                countdownDisplay.classList.add('countdown-number');
+
+                africanMusic.playCountdownDrum(num === 1);
+            }
+
+            showStep(current);
+
+            const interval = setInterval(() => {
+                current--;
+                if (current >= 1) {
+                    showStep(current);
+                } else {
+                    clearInterval(interval);
+                    countdownOverlay.classList.add('hidden');
+                    countdownOverlay.classList.remove('flex');
+                    openVideoSurprise();
+                }
+            }, 950);
+        }
+
+        function openVideoSurprise() {
+            // Upewnij się, że muzyka w tle jest wyłączona przed startem wideo
+            africanMusic.stop(false);
+
+            videoModal.classList.remove('hidden');
+            videoModal.classList.add('flex');
+            launchConfettiBurst(160);
+
+            // Automatyczne odtworzenie nagrania wideo
+            birthdayVideo.currentTime = 0;
+            const playPromise = birthdayVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Jeśli przeglądarka wymaga kliknięcia przycisku Play na kontrolkach, kontrolki są widoczne
+                });
+            }
+
+            isSequenceRunning = false;
+        }
+
+        function closeVideoModal() {
+            birthdayVideo.pause();
+            videoModal.classList.add('hidden');
+            videoModal.classList.remove('flex');
+
+            // Przywrócenie zamkniętego wyglądu prezentu, aby można było otworzyć go ponownie
+            giftBox.classList.remove('gift-opened');
+            giftTrigger.classList.remove('gift-opened');
+            giftTrigger.classList.add('float-slow');
+
+            // Wznów afrykańską muzykę w tle po zamknięciu nagrania, o ile nie była ręcznie wyłączona
+            if (africanMusic.wasPlayingBeforeVideo && !africanMusic.userMuted) {
+                africanMusic.start();
+            }
+        }
+
+        // Nasłuchiwacze zdarzeń
+        giftTrigger.addEventListener('click', startGiftOpeningSequence);
+        giftTrigger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                startGiftOpeningSequence();
+            }
+        });
+        openGiftBtn.addEventListener('click', startGiftOpeningSequence);
+
+        closeModalBtn.addEventListener('click', closeVideoModal);
+        closeModalFooterBtn.addEventListener('click', closeVideoModal);
+        replayConfettiBtn.addEventListener('click', () => launchConfettiBurst(120));
+
+        // Zamknięcie modala klawiszem ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !videoModal.classList.contains('hidden')) {
+                closeVideoModal();
+            }
+        });
+    </script>
+</body>
+</html>
